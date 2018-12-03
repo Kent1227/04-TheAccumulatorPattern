@@ -9,8 +9,8 @@ Additionally, it emphasizes that you must
 before you can implement a solution to the problem in Python.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Kent Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -53,6 +53,7 @@ def run_test_draw_parallel_lines():
     # Test 2:
     left_most_point = rg.Point(50, 200)
     draw_parallel_lines(4, left_most_point, 300, window1)
+    window1.render()
     window1.close_on_mouse_click()
 
     # -------------------------------------------------------------------------
@@ -64,7 +65,7 @@ def run_test_draw_parallel_lines():
     # Test 3:
     left_most_point = rg.Point(20, 20)
     draw_parallel_lines(12, left_most_point, 470, window2)
-
+    window2.render()
     window2.close_on_mouse_click()
 
 
@@ -95,8 +96,12 @@ def draw_parallel_lines(n, point, length, window):
       :type length: int
       :type window: rg.RoseWindow
     """
+    for _ in range(n):
+        line = rg.Line(point, rg.Point(point.x + length, point.y))
+        line.attach_to(window)
+        point.y = point.y + 30
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # CONSIDER using the ACCUMULATOR IN GRAPHICS pattern,
@@ -160,6 +165,11 @@ def draw_lines(n, point, window):
       :type point: rg.Point
       :type window: rg.RoseWindow
     """
+    for _ in range(n):
+        line = rg.Line(point, rg.Point(point.x + 100, point.y + 100))
+        line.attach_to(window)
+        point.y = (point.y + point.y / n)
+    window.render()
     # -------------------------------------------------------------------------
     # TODO: 3. Implement and test this function.
     #          Tests have been written for you (above).

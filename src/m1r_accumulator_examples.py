@@ -5,8 +5,8 @@ This module demonstrates the ACCUMULATOR pattern in three classic forms:
    IN GRAPHICS:   x = x + pixels
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and Kent Smith.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 #
@@ -27,22 +27,22 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #          which of the following three choices would you use?
 #
 #            for k in range(r - 1):
-#            for k in range(r):
+#            for k in range(r): <---------
 #            for k in range(r + 1):
 #
 #     b. If you want a loop that runs from 0 to s, inclusive,
-#          what expression would you use in the _____ below?
+#          what expression would you use in the _____ below?  s+1
 #
 #            for k in range(_____):
 #
 #     c. If you want a loop that runs from r to s, inclusive, assuming s >= r,
-#          what expression would you use in the _____ below?
+#          what expression would you use in the _____ below?  s + 1 - r
 #
 #            for k in range(_____):
 #
 #     d. If you want a loop that runs from (r + 4) to (s - 10),
 #          including the (r + 4) but not including the (s - 10),
-#          what expression would you use in the _____ below?
+#          what expression would you use in the _____ below?  (s - 10) - (r + 4)
 #
 #            for k in range(_____):
 #
@@ -50,15 +50,15 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #          of integers from r to s, inclusive, whose cosines are positive.
 #          It has at least 5 distinct errors (one per line).  What are they?
 #
-#              for k in range(r - s):
+#              for k in range(r - s): range can't be negative
 #                  count = 0
 #                  if math.cos(r) > 0:
 #                      count = 1
-#                  return count
+#                  return count       can't return in a loop
 #
 #     f. The code in the "graphics accumulation" example below includes:
 #            for _ in range(n):
-#        What does the   _   (underscore) mean?
+#        What does the   _   (underscore) mean? A loop variable not used in the loop
 #
 #     g. The code in the "graphics accumulation" example below includes:
 #
@@ -72,7 +72,7 @@ Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
 #        If you want the row-of-circles that the above creates,
 #        one of the following two attempts is a CORRECT attempt
 #        (i.e., is equivalent in its functionality to the above)
-#        and one is WRONG.  Which is the WRONG one?
+#        and one is WRONG.  Which is the WRONG one? the second one
 #
 #              x = starting_point.x
 #              for k in range(n):

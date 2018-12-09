@@ -334,6 +334,23 @@ def draw_lines_from_rectangles(rectangle1, rectangle2, n, window):
     #          ** FIRST DO A CONCRETE EXAMPLE BY HAND! **
     ###########################################################################
     # -------------------------------------------------------------------------
+    rectangle1.attach_to(window)
+    rectangle2.attach_to(window)
+    a = rectangle1.get_center()
+    b = rectangle2.get_center()
+    for k in range(n):
+        line = rg.Line(a, b)
+        line.thickness = 5
+        if k % 2 == 0:
+            line.color = rectangle1.outline_color
+        else:
+            line.color = rectangle2.outline_color
+        line.attach_to(window)
+        a.x = a.x - (rectangle1.get_width() / 2)
+        b.x = b.x - (rectangle1.get_width() / 2)
+        a.y = a.y + (rectangle1.get_height() / 2)
+        b.y = b.y + (rectangle1.get_height() / 2)
+    window.render()
 
 
 # -----------------------------------------------------------------------------
